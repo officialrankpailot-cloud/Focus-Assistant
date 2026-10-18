@@ -4,14 +4,17 @@ workflows:
     max_build_duration: 60
     instance_type: mac_mini_m1
     scripts:
-      - name: Set up local.properties
+      - name: Locate Flutter Project and Get Packages
         script: |
-          echo "flutter.sdk=$HOME/programs/flutter" > local.properties
-      - name: Get Flutter packages
-        script: |
+          PROJ_DIR=$(dirname $(find . -maxdepth 3 -name "pubspec.yaml" | head -n 1))
+          echo "Found Flutter project at: $PROJ_DIR"
+          cd "$PROJ_DIR"
+          echo "flutter.sdk=$HOME/programs/flutter" > android/local.properties || echo "flutter.sdk=$HOME/programs/flutter" > local.properties
           flutter pub get
       - name: Build Android APK
         script: |
+          PROJ_DIR=$(dirname $(find . -maxdepth 3 -name "pubspec.yaml" | head -n 1))
+          cd "$PROJ_DIR"
           flutter build apk --release
     artifacts:
-      - build/app/outputs/flutter-apk/*.apk
+      - "**/build/app/outputs/flutter-apk/*.apk"
