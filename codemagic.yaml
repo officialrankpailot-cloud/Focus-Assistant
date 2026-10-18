@@ -1,20 +1,12 @@
 workflows:
-  android-workflow:
-    name: Android Workflow
+  android-native-workflow:
+    name: Android Native Workflow
     max_build_duration: 60
     instance_type: mac_mini_m1
     scripts:
-      - name: Locate Flutter Project and Get Packages
-        script: |
-          PROJ_DIR=$(dirname $(find . -maxdepth 3 -name "pubspec.yaml" | head -n 1))
-          echo "Found Flutter project at: $PROJ_DIR"
-          cd "$PROJ_DIR"
-          echo "flutter.sdk=$HOME/programs/flutter" > android/local.properties || echo "flutter.sdk=$HOME/programs/flutter" > local.properties
-          flutter pub get
       - name: Build Android APK
         script: |
-          PROJ_DIR=$(dirname $(find . -maxdepth 3 -name "pubspec.yaml" | head -n 1))
-          cd "$PROJ_DIR"
-          flutter build apk --release
+          chmod +x gradlew
+          ./gradlew assembleRelease
     artifacts:
-      - "**/build/app/outputs/flutter-apk/*.apk"
+      - app/build/outputs/apk/release/*.apk
