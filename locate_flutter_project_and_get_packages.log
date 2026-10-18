@@ -1,0 +1,10 @@
+usage: dirname string [...]
+Found Flutter project at: 
+/var/folders/w2/rrf5p87d1bbfyphxc7jdnyvh0000gn/T/build_script_2_1_ef8_g5ru: line 6: android/local.properties: No such file or directory
+
+┌─────────────────────────────────────────────────────────┐
+│ A new version of Flutter is available!                  │
+│                                                         │
+│ To update to the latest version, run "flutter upgrade". │
+└─────────────────────────────────────────────────────────┘
+Expected to find project root in current working directory.
