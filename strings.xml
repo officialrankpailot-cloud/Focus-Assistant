@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Discipline Focus</string>
+    <string name="app_title_full">Discipline Focus Assistant</string>
+    <string name="accessibility_service_name">Discipline Shield Accessibility Service</string>
+    <string name="accessibility_service_description">Monitors foreground apps to enforce mobile discipline during active Focus Mode, blocking social media and adult sites while protecting whitelisted productivity tools.</string>
+</resources>

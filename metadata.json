@@ -1,0 +1,6 @@
+{
+  "name": "Discipline Focus Assistant",
+  "description": "Mobile discipline app with voice-verified alarm (Ami ghum theke uthechi), study desk camera verification, app blocker, and whitelist.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
